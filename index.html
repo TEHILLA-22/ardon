@@ -2626,87 +2626,96 @@
                 createdAt: new Date().toISOString()
             });
             
-           // Add 50 top brands
-    const brandsStore = transaction.objectStore('brands');
-    const topBrands = [
-        // Luxury Fashion
-        { name: 'Gucci', categories: ['clothing', 'bags', 'shoes', 'accessories'] },
-        { name: 'Louis Vuitton', categories: ['bags', 'clothing', 'shoes', 'accessories'] },
-        { name: 'Chanel', categories: ['clothing', 'bags', 'shoes', 'accessories'] },
-        { name: 'Prada', categories: ['clothing', 'bags', 'shoes', 'accessories'] },
-        { name: 'Hermès', categories: ['bags', 'clothing', 'shoes', 'accessories'] },
-        { name: 'Dior', categories: ['clothing', 'bags', 'shoes', 'accessories'] },
-        { name: 'Fendi', categories: ['clothing', 'bags', 'shoes', 'accessories'] },
-        { name: 'Balenciaga', categories: ['clothing', 'shoes', 'bags'] },
-        { name: 'Burberry', categories: ['clothing', 'accessories'] },
-        { name: 'Versace', categories: ['clothing', 'accessories'] },
-        
-        // Contemporary Fashion
-        { name: 'Saint Laurent', categories: ['clothing', 'shoes', 'bags'] },
-        { name: 'Givenchy', categories: ['clothing', 'accessories'] },
-        { name: 'Valentino', categories: ['clothing', 'shoes'] },
-        { name: 'Dolce & Gabbana', categories: ['clothing', 'accessories'] },
-        { name: 'Bottega Veneta', categories: ['bags', 'shoes'] },
-        { name: 'Alexander McQueen', categories: ['clothing', 'shoes'] },
-        { name: 'Balmain', categories: ['clothing'] },
-        { name: 'Stella McCartney', categories: ['clothing', 'bags'] },
-        { name: 'Off-White', categories: ['clothing', 'shoes'] },
-        { name: 'Vetements', categories: ['clothing'] },
-        
-        // Sportswear
-        { name: 'Nike', categories: ['shoes', 'clothing'] },
-        { name: 'Adidas', categories: ['shoes', 'clothing'] },
-        { name: 'Puma', categories: ['shoes', 'clothing'] },
-        { name: 'Under Armour', categories: ['clothing'] },
-        { name: 'Lululemon', categories: ['clothing'] },
-        { name: 'Reebok', categories: ['shoes', 'clothing'] },
-        { name: 'Fila', categories: ['shoes', 'clothing'] },
-        { name: 'New Balance', categories: ['shoes', 'clothing'] },
-        { name: 'Converse', categories: ['shoes'] },
-        { name: 'Vans', categories: ['shoes'] },
-        
-        // Jewelry & Watches
-        { name: 'Tiffany & Co.', categories: ['jewelry', 'accessories'] },
-        { name: 'Cartier', categories: ['jewelry', 'watches'] },
-        { name: 'Rolex', categories: ['watches'] },
-        { name: 'Omega', categories: ['watches'] },
-        { name: 'Patek Philippe', categories: ['watches'] },
-        { name: 'Bulgari', categories: ['jewelry', 'watches'] },
-        { name: 'Van Cleef & Arpels', categories: ['jewelry'] },
-        { name: 'Chopard', categories: ['jewelry', 'watches'] },
-        { name: 'Tag Heuer', categories: ['watches'] },
-        { name: 'Hublot', categories: ['watches'] },
-        
-        // Tech/Gadgets
-        { name: 'Apple', categories: ['phones', 'accessories'] },
-        { name: 'Samsung', categories: ['phones', 'accessories'] },
-        { name: 'Sony', categories: ['electronics', 'accessories'] },
-        { name: 'Bose', categories: ['electronics', 'accessories'] },
-        { name: 'Beats', categories: ['electronics', 'accessories'] },
-        { name: 'DJI', categories: ['electronics'] },
-        { name: 'GoPro', categories: ['electronics'] },
-        { name: 'Fitbit', categories: ['electronics', 'watches'] },
-        { name: 'Garmin', categories: ['watches', 'electronics'] },
-        { name: 'Ray-Ban', categories: ['accessories'] }
-    ];
-
-    topBrands.forEach((brand, index) => {
-        brandsStore.add({
-            name: brand.name,
-            email: `${brand.name.toLowerCase().replace(/[^a-z0-9]/g, '')}@customcraft.com`,
-            password: `${brand.name.toLowerCase().replace(/[^a-z0-9]/g, '')}123`,
-            description: `Official ${brand.name} custom products`,
-            logo: `https://logo.clearbit.com/${brand.name.toLowerCase().replace(/ /g, '')}.com?size=200`,
-            categories: brand.categories,
-            bankDetails: {
-                bankName: 'Global Bank',
-                accountName: `${brand.name} Inc.`,
-                accountNumber: `100000${index}`,
-                routingNumber: '123456789'
-            },
-            createdAt: new Date().toISOString()
-        });
-    });
+            // Add some brands
+            const brandsStore = transaction.objectStore('brands');
+            brandsStore.add({
+                name: 'Nike',
+                email: 'nike@customcraft.com',
+                password: 'nike123',
+                description: 'Leading sports footwear and apparel brand',
+                logo: 'https://i.imgur.com/1Q9ZQ9r.png',
+                categories: ['shoes', 'clothing'],
+                bankDetails: {
+                    bankName: 'Chase Bank',
+                    accountName: 'Nike Inc.',
+                    accountNumber: '123456789',
+                    routingNumber: '987654321'
+                },
+                createdAt: new Date().toISOString()
+            });
+            
+            brandsStore.add({
+                name: 'Adidas',
+                email: 'adidas@customcraft.com',
+                password: 'adidas123',
+                description: 'German multinational sportswear manufacturer',
+                logo: 'https://i.imgur.com/9Q9ZQ9r.png',
+                categories: ['shoes', 'bags', 'clothing'],
+                bankDetails: {
+                    bankName: 'Bank of America',
+                    accountName: 'Adidas AG',
+                    accountNumber: '987654321',
+                    routingNumber: '123456789'
+                },
+                createdAt: new Date().toISOString()
+            });
+            
+            brandsStore.add({
+                name: 'Apple',
+                email: 'apple@customcraft.com',
+                password: 'apple123',
+                description: 'Technology company specializing in consumer electronics',
+                logo: 'https://i.imgur.com/2Q9ZQ9r.png',
+                categories: ['phones', 'accessories'],
+                bankDetails: {
+                    bankName: 'Wells Fargo',
+                    accountName: 'Apple Inc.',
+                    accountNumber: '567891234',
+                    routingNumber: '432156789'
+                },
+                createdAt: new Date().toISOString()
+            });
+            
+            // Add some products
+            const productsStore = transaction.objectStore('products');
+            productsStore.add({
+                brandId: 1, // Nike
+                name: 'Air Max Custom',
+                category: 'shoes',
+                description: 'Customizable Air Max sneakers with personalized colors and materials',
+                basePrice: 149.99,
+                images: [
+                    'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                ],
+                customizationOptions: 'Colors, materials, logos, text engravings',
+                createdAt: new Date().toISOString()
+            });
+            
+            productsStore.add({
+                brandId: 2, // Adidas
+                name: 'Explorer Backpack',
+                category: 'bags',
+                description: 'Durable backpack with customizable colors and embroidery',
+                basePrice: 79.99,
+                images: [
+                    'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                ],
+                customizationOptions: 'Colors, patterns, embroidery, patches',
+                createdAt: new Date().toISOString()
+            });
+            
+            productsStore.add({
+                brandId: 3, // Apple
+                name: 'iPhone Custom Case',
+                category: 'phones',
+                description: 'Personalized iPhone case with custom designs',
+                basePrice: 49.99,
+                images: [
+                    'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+                ],
+                customizationOptions: 'Designs, colors, text, images',
+                createdAt: new Date().toISOString()
+            });
             
             // Add platform settings
             const settingsStore = transaction.objectStore('settings');
